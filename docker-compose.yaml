@@ -24,7 +24,8 @@ services:
       MYSQL_USER: test_user
       MYSQL_PASSWORD: test_password
     volumes:
-        - ./api/database/migrations:/docker-entrypoint-initdb.d  # Mount migration scripts here
+        - ./api/database/migrations:/docker-entrypoint-initdb.d
+        - ./api/database/seeders/seed.sql:/docker-entrypoint-initdb.d/seeds.sql
         - ./database/volume:/var/lib/mysql
     hostname: database.cc.localhost
     labels:
